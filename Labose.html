@@ -1,0 +1,81 @@
+<section>
+    <h1>Arborescence Linux : comprendre les principaux répertoires</h1>
+
+    <p>
+        Sous Linux, tout est organisé à partir du répertoire racine <code>/</code>.
+        Chaque dossier possède un rôle précis dans le fonctionnement du système.
+        Voici les répertoires les plus importants à connaître.
+    </p>
+
+    <img src="images/arborescence-linux.png" alt="Arborescence Linux" style="max-width:100%; border-radius:8px;">
+
+    <dl>
+
+        <dt><code>/bin</code></dt>
+        <dd>Contient les binaires essentiels accessibles à tous les utilisateurs (ex. <code>ls</code>, <code>cp</code>, <code>cat</code>).</dd>
+
+        <dt><code>/boot</code></dt>
+        <dd>Fichiers nécessaires au démarrage : noyau (<code>vmlinuz</code>), initrd et chargeur de démarrage (GRUB).</dd>
+
+        <dt><code>/dev</code></dt>
+        <dd>Fichiers spéciaux représentant les périphériques (disques, ports, imprimantes, etc.).</dd>
+
+        <dt><code>/etc</code></dt>
+        <dd>Fichiers de configuration du système et des services (ex. <code>/etc/passwd</code>, <code>/etc/fstab</code>).</dd>
+
+        <dt><code>/home</code></dt>
+        <dd>Répertoires personnels des utilisateurs avec leurs fichiers et préférences.</dd>
+
+        <dt><code>/lib</code></dt>
+        <dd>Bibliothèques partagées essentielles utilisées par les programmes de <code>/bin</code> et <code>/sbin</code>.</dd>
+
+        <dt><code>/lib64</code></dt>
+        <dd>Version 64 bits des bibliothèques partagées.</dd>
+
+        <dt><code>/lost+found</code></dt>
+        <dd>Zone où sont placés les fichiers récupérés après une réparation du système de fichiers.</dd>
+
+        <dt><code>/media</code></dt>
+        <dd>Points de montage automatiques des supports amovibles (clés USB, CD-ROM, cartes mémoire...).</dd>
+
+        <dt><code>/mnt</code></dt>
+        <dd>Points de montage temporaires pour disques, partitions ou systèmes de fichiers.</dd>
+
+        <dt><code>/opt</code></dt>
+        <dd>Logiciels additionnels installés en dehors du système de base.</dd>
+
+        <dt><code>/proc</code></dt>
+        <dd>Système de fichiers virtuel donnant des informations sur les processus et le noyau (ex. <code>/proc/cpuinfo</code>).</dd>
+
+        <dt><code>/root</code></dt>
+        <dd>Répertoire personnel de l'utilisateur root (administrateur).</dd>
+
+        <dt><code>/run</code></dt>
+        <dd>Informations temporaires d'exécution : PID, sockets, états des services, etc.</dd>
+
+        <dt><code>/sbin</code></dt>
+        <dd>Binaires essentiels destinés à l'administration du système (ex. <code>mount</code>, <code>shutdown</code>).</dd>
+
+        <dt><code>/srv</code></dt>
+        <dd>Données des services fournis par le système (sites web, FTP, serveurs de fichiers, etc.).</dd>
+
+        <dt><code>/sys</code></dt>
+        <dd>Interface entre le noyau Linux et les périphériques via un pseudo-système de fichiers.</dd>
+
+        <dt><code>/target</code></dt>
+        <dd>Répertoire rarement présent, utilisé par certains systèmes pour des montages spécifiques ou lors de procédures de démarrage.</dd>
+
+        <dt><code>/tmp</code></dt>
+        <dd>Fichiers temporaires généralement supprimés au redémarrage du système.</dd>
+
+        <dt><code>/usr</code></dt>
+        <dd>Programmes, bibliothèques et documentation destinés aux utilisateurs (ex. <code>/usr/bin</code>, <code>/usr/share</code>).</dd>
+
+        <dt><code>/var</code></dt>
+        <dd>Données variables : journaux système (logs), files d'attente, caches, bases de données et courriels.</dd>
+
+        <dt><code>vmlinuz</code></dt>
+        <dd>Fichier du noyau Linux compressé utilisé au démarrage du système.</dd>
+
+    </dl>
+</section>
