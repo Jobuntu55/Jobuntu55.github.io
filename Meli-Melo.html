@@ -1,1 +1,81 @@
+La commande man : le super-pouvoir caché du terminal Linux
 
+Lors de mes explorations sous Linux, j'ai découvert une commande aussi simple qu'indispensable : man. Étonnamment, je ne la connaissais pas alors qu'elle fait partie des outils les plus utiles du système.
+
+man est l'abréviation de manual. Son rôle est de donner accès à la documentation officielle des commandes directement depuis le terminal. Plus besoin d'ouvrir un navigateur ou de chercher une information sur Internet : la réponse est souvent déjà disponible sur votre machine.
+
+Par exemple :
+
+Shell
+man ls
+
+Cette commande affiche la documentation complète de ls, avec la description de son fonctionnement, toutes les options disponibles et des explications détaillées.
+
+On peut faire la même chose avec pratiquement n'importe quelle commande :
+
+Shell
+man cp
+man find
+man grep
+man systemctl
+
+L'avantage est énorme lorsque l'on découvre une commande ou que l'on a oublié la signification d'une option.
+
+Se déplacer dans une page de manuel
+
+Une fois dans une page man, quelques raccourcis sont particulièrement utiles :
+
+Plain Text
+↑ ↓ Défilement ligne par ligne
+PageUp/PageDown Défilement par page
+/mot Recherche d'un mot
+n Résultat suivant
+N Résultat précédent
+q Quitter
+Exemple pratique
+
+Vous connaissez la commande ls, mais vous ne vous souvenez plus comment afficher les tailles de fichiers dans un format lisible.
+
+Shell
+man ls
+
+Puis recherchez :
+
+Plain Text
+-h
+
+Vous découvrirez l'option :
+
+Shell
+ls -lh
+ 
+
+qui affiche les tailles en Ko, Mo ou Go au lieu d'octets bruts.
+
+Quelques commandes complémentaires
+
+Pour obtenir une description très courte d'une commande :
+
+Shell
+whatis ls
+
+Ou l'aide rapide intégrée :
+
+Shell
+ls --help
+
+Et si vous ne connaissez pas le nom exact d'une commande, vous pouvez rechercher dans les manuels :
+
+Shell
+man -k réseau
+
+ou
+
+Shell
+apropos réseau
+Un réflexe à adopter
+
+Aujourd'hui, avant même d'ouvrir Google, mon premier réflexe est souvent :
+
+Shell
+man nom_de_la_commande
