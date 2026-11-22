@@ -1,0 +1,154 @@
+<h1>Consultation des fichiers</h1>
+
+<h2>Afficher le début d'un fichier</h2>
+
+<p>La commande <code>head</code> permet d'afficher le début d'un fichier.</p>
+
+<pre><code>head fichier.txt</code></pre>
+
+<p>Afficher les 20 premières lignes :</p>
+
+<pre><code>head -n 20 fichier.txt</code></pre>
+
+<h2>Afficher la fin d'un fichier</h2>
+
+<p>La commande <code>tail</code> permet d'afficher la fin d'un fichier.</p>
+
+<pre><code>tail fichier.txt</code></pre>
+
+<p>Suivre l'évolution d'un fichier de logs en temps réel :</p>
+
+<pre><code>tail -f /var/log/syslog</code></pre>
+
+<hr>
+
+<h1>Informations détaillées sur un fichier</h1>
+
+<h2>Commande stat</h2>
+
+<p>La commande <code>stat</code> affiche de nombreuses informations sur un fichier :</p>
+
+<ul>
+    <li>Taille</li>
+    <li>Permissions</li>
+    <li>Propriétaire</li>
+    <li>Dates de création et de modification</li>
+    <li>Numéro d'inode</li>
+</ul>
+
+<pre><code>stat fichier.txt</code></pre>
+
+<hr>
+
+<h1>Les inodes</h1>
+
+<p>Un inode contient les informations d'un fichier ou d'un dossier sur le système de fichiers.</p>
+
+<p>Afficher le numéro d'inode :</p>
+
+<pre><code>ls -li</code></pre>
+
+<p>Le numéro affiché correspond à l'inode du fichier. Celui-ci permet au système de retrouver l'emplacement des données sur le disque.</p>
+
+<hr>
+
+<h1>Types de fichiers sous Linux</h1>
+
+<p>La première lettre affichée par <code>ls -l</code> indique le type de fichier :</p>
+
+<ul>
+    <li><strong>-</strong> : fichier régulier</li>
+    <li><strong>d</strong> : répertoire (dossier)</li>
+    <li><strong>l</strong> : lien symbolique</li>
+    <li><strong>b</strong> : périphérique de type bloc</li>
+    <li><strong>c</strong> : périphérique de type caractère</li>
+    <li><strong>s</strong> : socket</li>
+    <li><strong>p</strong> : tube nommé (pipe)</li>
+</ul>
+
+<p>Exemple :</p>
+
+<pre><code>ls -l</code></pre>
+
+<hr>
+
+<h1>Liens (Links)</h1>
+
+<h2>Créer un lien physique</h2>
+
+<pre><code>ln fichier.txt lien.txt</code></pre>
+
+<p>Les deux fichiers pointent vers le même inode.</p>
+
+<h2>Créer un lien symbolique</h2>
+
+<pre><code>ln -s fichier.txt raccourci.txt</code></pre>
+
+<p>Le lien symbolique agit comme un raccourci vers le fichier d'origine.</p>
+
+<hr>
+
+<h1>Montage des systèmes de fichiers</h1>
+
+<h2>Commande mount</h2>
+
+<p>La commande <code>mount</code> permet :</p>
+
+<ul>
+    <li>de voir les systèmes de fichiers montés ;</li>
+    <li>de connaître leur type ;</li>
+    <li>de monter une partition dans un répertoire afin de pouvoir accéder à son contenu.</li>
+</ul>
+
+<p>Exemples de systèmes de fichiers :</p>
+
+<ul>
+    <li>ext4</li>
+    <li>xfs</li>
+    <li>btrfs</li>
+    <li>zfs</li>
+</ul>
+
+<pre><code>mount</code></pre>
+
+<hr>
+
+<h1>Espace disque</h1>
+
+<h2>Commande df (Disk Free)</h2>
+
+<p>La commande <code>df</code> affiche :</p>
+
+<ul>
+    <li>la taille totale des disques ;</li>
+    <li>l'espace utilisé ;</li>
+    <li>l'espace disponible ;</li>
+    <li>le taux d'occupation.</li>
+</ul>
+
+<pre><code>df</code></pre>
+
+<p>Version plus lisible :</p>
+
+<pre><code>df -h</code></pre>
+
+<p>Le paramètre <code>-h</code> signifie <strong>human-readable</strong> (format lisible par un humain).</p>
+
+<hr>
+
+<h1>Taille des fichiers et répertoires</h1>
+
+<h2>Commande du (Disk Usage)</h2>
+
+<p>La commande <code>du</code> permet d'afficher la taille occupée par un fichier ou un répertoire.</p>
+
+<pre><code>du fichier.txt</code></pre>
+
+<p>Afficher la taille d'un répertoire de manière lisible :</p>
+
+<pre><code>du -sh dossier</code></pre>
+
+<ul>
+    <li><code>-s</code> : résumé uniquement</li>
+    <li><code>-h</code> : affichage lisible (Ko, Mo, Go)</li>
+</ul>
