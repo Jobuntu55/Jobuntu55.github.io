@@ -1,0 +1,95 @@
+<h1>Les commandes indispensables à connaître sous Linux</h1>
+
+<p>
+Maintenant que nous avons vu quelques commandes de base, il est important de connaître
+certains outils indispensables sous Linux. L'une des commandes les plus utilisées est
+<code>grep</code>, qui permet de rechercher du texte dans un fichier ou dans le résultat
+d'une commande.
+</p>
+
+<hr>
+
+<h2>grep : rechercher du texte</h2>
+
+<p>
+La commande <code>grep</code> permet de rechercher une chaîne de caractères dans un
+fichier ou dans la sortie d'une autre commande.
+</p>
+
+<p>Syntaxe :</p>
+
+<pre><code>grep "texte" fichier.txt</code></pre>
+
+<p>Exemple :</p>
+
+<pre><code>grep "root" /etc/passwd</code></pre>
+
+<p>
+Affiche uniquement les lignes contenant le mot <code>root</code>.
+</p>
+
+<hr>
+
+<h2>Utilisation avec un pipe ( | )</h2>
+
+<p>
+On utilise souvent <code>grep</code> avec un pipe (<code>|</code>) afin de filtrer le
+résultat d'une commande.
+</p>
+
+<p>Exemple :</p>
+
+<pre><code>mount | grep ext4</code></pre>
+
+<p>
+Affiche uniquement les lignes contenant <code>ext4</code>.
+</p>
+
+<hr>
+
+<h2>grep -v : exclure du texte</h2>
+
+<p>
+L'option <code>-v</code> signifie <strong>invert match</strong>. Au lieu d'afficher les
+lignes contenant le texte recherché, elle affiche toutes les autres lignes.
+</p>
+
+<p>Exemple :</p>
+
+<pre><code>mount | grep -v tmpfs</code></pre>
+
+<p>
+Affiche le résultat de <code>mount</code> en supprimant toutes les lignes contenant
+<code>tmpfs</code>.
+</p>
+
+<p>Autre exemple :</p>
+
+<pre><code>df -h | grep -v tmpfs</code></pre>
+
+<p>
+Permet d'afficher les systèmes de fichiers tout en masquant les systèmes temporaires
+<code>tmpfs</code>.
+</p>
+
+<hr>
+
+<h2>Commandes souvent combinées avec grep</h2>
+
+<ul>
+    <li><code>ps aux | grep apache</code> : rechercher un processus.</li>
+    <li><code>ls -l | grep ".html"</code> : rechercher les fichiers HTML.</li>
+    <li><code>history | grep ssh</code> : rechercher une commande dans l'historique.</li>
+    <li><code>env | grep PATH</code> : rechercher une variable d'environnement.</li>
+</ul>
+
+<hr>
+
+<h2>À retenir</h2>
+
+<ul>
+    <li><code>grep</code> : rechercher un texte.</li>
+    <li><code>grep -v</code> : exclure un texte.</li>
+    <li><code>|</code> (pipe) : envoyer le résultat d'une commande vers une autre.</li>
+    <li><code>grep</code> est l'une des commandes les plus utilisées pour filtrer rapidement des informations sous Linux.</li>
+</ul>
