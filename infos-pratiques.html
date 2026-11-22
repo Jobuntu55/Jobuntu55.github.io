@@ -20,6 +20,55 @@
 
 <h1>Variables d'environnement</h1>
 
+<p>
+Les variables d'environnement sont des informations stockées en mémoire et utilisées
+par le système d'exploitation ainsi que par les applications. Elles permettent de
+personnaliser le comportement de Linux et des programmes.
+</p>
+
+<h2>À quoi servent-elles ?</h2>
+
+<ul>
+    <li>Stocker des paramètres système.</li>
+    <li>Définir le chemin de recherche des commandes.</li>
+    <li>Configurer des applications.</li>
+    <li>Conserver des informations sur l'utilisateur connecté.</li>
+    <li>Partager des informations entre plusieurs programmes.</li>
+</ul>
+
+<h2>Exemples de variables courantes</h2>
+
+<ul>
+    <li><code>HOME</code> : répertoire personnel de l'utilisateur.</li>
+    <li><code>USER</code> : nom de l'utilisateur connecté.</li>
+    <li><code>PATH</code> : liste des dossiers où Linux recherche les commandes.</li>
+    <li><code>SHELL</code> : shell utilisé par l'utilisateur.</li>
+    <li><code>HOSTNAME</code> : nom de la machine.</li>
+</ul>
+
+<h2>Afficher une variable</h2>
+
+<pre><code>echo $HOME
+echo $USER
+echo $PATH</code></pre>
+
+<h2>Exemple pratique</h2>
+
+<pre><code>export PRENOM="Jonathan"
+echo "Bonjour $PRENOM"</code></pre>
+<p>Résultat :</p>
+
+<pre><code>Bonjour Jonathan</code></pre>
+
+<h2>À retenir</h2>
+
+<ul>
+    <li><code>export</code> crée ou modifie une variable d'environnement.</li>
+    <li><code>echo $VARIABLE</code> affiche son contenu.</li>
+    <li><code>env</code> affiche toutes les variables d'environnement.</li>
+    <li>Les variables créées avec <code>export</code> disparaissent lorsque le terminal est fermé, sauf si elles sont ajoutées dans <code>~/.bashrc</code>.</li>
+</ul>
+
 <hr>
 
 <h1>Répertoire /var</h1>
