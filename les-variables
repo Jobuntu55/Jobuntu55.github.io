@@ -93,3 +93,6 @@ echo "Bonjour $PRENOM"</code></pre>
 <pre><code>env | grep MON_TEST</code></pre>
 
 <hr>
+  <a href="">← Suite</a>
+
+<a href="index.html">← Retour à l'accueil</a>
