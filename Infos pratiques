@@ -20,6 +20,25 @@
 
 <h1>Variables d'environnement</h1>
 
+<hr>
+
+<h1>Répertoire /var</h1>
+
+<p><code>/var</code> signifie <strong>Variable</strong>.</p>
+
+<p>Ce répertoire contient les données qui évoluent et changent régulièrement.</p>
+
+<p>Exemples courants :</p>
+
+<ul>
+    <li><code>/var/log</code> : fichiers de journalisation (logs)</li>
+    <li><code>/var/tmp</code> : fichiers temporaires</li>
+    <li><code>/var/cache</code> : fichiers de cache</li>
+    <li><code>/var/lib</code> : données utilisées par certaines applications et services</li>
+</ul>
+
+<hr>
+
 <h2>Créer ou modifier une variable</h2>
 
 <p>La commande <code>export</code> permet d'ajouter ou de modifier une variable d'environnement.</p>
