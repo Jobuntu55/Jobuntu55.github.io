@@ -1,0 +1,70 @@
+<h1>Historique des commandes (History)</h1>
+
+<h2>Réexécuter une commande</h2>
+
+<p>Réexécuter la dernière commande :</p>
+
+<pre><code>!!</code></pre>
+
+<p>Réexécuter une commande précise de l'historique :</p>
+
+<pre><code>!100</code></pre>
+
+<p>Exemple : exécute à nouveau la commande n°100 de l'historique.</p>
+
+<p>Afficher l'historique complet :</p>
+
+<pre><code>history</code></pre>
+
+<hr>
+
+<h1>Variables d'environnement</h1>
+
+<h2>Créer ou modifier une variable</h2>
+
+<p>La commande <code>export</code> permet d'ajouter ou de modifier une variable d'environnement.</p>
+
+<pre><code>export MON_TEST="Bonjour"</code></pre>
+
+<p>Afficher la valeur de la variable :</p>
+
+<pre><code>echo $MON_TEST</code></pre>
+
+<p>Résultat :</p>
+
+<pre><code>Bonjour</code></pre>
+
+<h2>Afficher les variables d'environnement</h2>
+
+<p>Afficher toutes les variables d'environnement :</p>
+
+<pre><code>env</code></pre>
+
+<p>Rechercher une variable spécifique :</p>
+
+<pre><code>env | grep MON_TEST</code></pre>
+
+<hr>
+
+<h1>Navigation dans une ligne de commande</h1>
+
+<ul>
+    <li><strong>Ctrl + A</strong> : aller au début de la ligne</li>
+    <li><strong>Ctrl + E</strong> : aller à la fin de la ligne</li>
+    <li><strong>Ctrl + K</strong> : supprimer du curseur jusqu'à la fin de la ligne</li>
+    <li><strong>Ctrl + U</strong> : supprimer du curseur jusqu'au début de la ligne</li>
+</ul>
+
+<h1>Recherche dans l'historique</h1>
+
+<p>Rechercher une commande déjà exécutée :</p>
+
+<pre><code>Ctrl + R</code></pre>
+
+<p>Puis saisir une partie de la commande recherchée.</p>
+
+<p>Exemple :</p>
+
+<pre><code>(reverse-i-search)`man': man ls</code></pre>
+
+<p>Le terminal affiche automatiquement la dernière commande correspondante.</p>
