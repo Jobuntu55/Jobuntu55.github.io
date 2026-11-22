@@ -82,6 +82,79 @@
         <dd>Fichier du noyau Linux compressé utilisé au démarrage du système.</dd>
 
     </dl>
+
+    <h1>Structure et répertoires Linux</h1>
+
+<h2>Types d'utilisateurs</h2>
+
+<p>Dans le terminal Linux :</p>
+
+<ul>
+    <li><strong>#</strong> : indique généralement que l'on est connecté en tant que <strong>root (superutilisateur)</strong>.</li>
+    <li><strong>$</strong> : indique que l'on est connecté en tant qu'<strong>utilisateur standard</strong>.</li>
+</ul>
+
+<hr>
+
+<h1>Répertoire /sbin</h1>
+
+<p><code>/sbin</code> signifie <strong>System Binaries</strong>.</p>
+
+<p>Ce répertoire contient des programmes système destinés principalement à l'administration du système et au superutilisateur (root).</p>
+
+<p>Exemples :</p>
+
+<pre><code>/sbin/reboot
+/sbin/fsck
+/sbin/ip</code></pre>
+
+<hr>
+
+<h1>Répertoire /sys</h1>
+
+<p>Le répertoire <code>/sys</code> est utilisé pour les informations avancées du système Linux.</p>
+
+<p>Il permet d'accéder à de nombreuses informations sur :</p>
+
+<ul>
+    <li>le noyau Linux ;</li>
+    <li>le matériel ;</li>
+    <li>les pilotes ;</li>
+    <li>les paramètres du système.</li>
+</ul>
+
+<p>On y trouve notamment des informations et paramètres liés au noyau.</p>
+
+<p>Exemple :</p>
+
+<pre><code>ls /sys</code></pre>
+
+<h1>Répertoire personnel utilisateur</h1>
+
+<p>Sous Linux, l'équivalent du dossier <strong>AppData</strong> de Windows se trouve principalement dans le répertoire personnel de l'utilisateur :</p>
+
+<pre><code>/home/nom_utilisateur</code></pre>
+
+<p>Les fichiers de configuration cachés commencent généralement par un point :</p>
+
+<pre><code>.bashrc
+.gitconfig
+.mozilla</code></pre>
+
+<hr>
+
+<h1>RC (Resource Configuration)</h1>
+
+<p>Le suffixe <code>rc</code> signifie généralement <strong>Run Commands</strong> ou <strong>Resource Configuration</strong>.</p>
+
+<p>Il correspond à des fichiers de configuration chargés automatiquement par un programme.</p>
+
+<p>Exemples :</p>
+
+<pre><code>~/.bashrc
+~/.vimrc</code></pre>
+
+<p>Ces fichiers permettent de personnaliser le comportement des applications et du shell.</p>
 </section>
 
   <a href="MannnnPower">← Suite</a>
