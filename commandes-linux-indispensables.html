@@ -1,1 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Commandes Linux Essentielles</title>
+</head>
+<body>
 
+<h1>Commandes Linux à connaître absolument</h1>
+
+<h2>Navigation</h2>
+
+<pre><code>pwd</code></pre>
+<p>Affiche le répertoire courant.</p>
+
+<pre><code>ls</code></pre>
+<p>Liste les fichiers et dossiers.</p>
+
+<pre><code>ls -la</code></pre>
+<p>Affiche tous les fichiers (y compris cachés) avec détails.</p>
+
+<pre><code>cd dossier</code></pre>
+<p>Se déplacer dans un dossier.</p>
+
+<pre><code>cd ..</code></pre>
+<p>Remonter d'un niveau.</p>
+
+<pre><code>cd ~</code></pre>
+<p>Retour au dossier personnel.</p>
+
+<h2>Gestion des fichiers</h2>
+
+<pre><code>touch fichier.txt</code></pre>
+<p>Créer un fichier vide.</p>
+
+<pre><code>mkdir dossier</code></pre>
+<p>Créer un dossier.</p>
+
+<pre><code>cp source destination</code></pre>
+<p>Copier un fichier.</p>
+
+<pre><code>mv ancien nouveau</code></pre>
+<p>Déplacer ou renommer un fichier.</p>
+
+<pre><code>rm fichier</code></pre>
+<p>Supprimer un fichier.</p>
+
+<pre><code>rm -r dossier</code></pre>
+<p>Supprimer un dossier et son contenu.</p>
+
+<h2>Lecture des fichiers</h2>
+
+<pre><code>cat fichier.txt</code></pre>
+<p>Afficher le contenu d'un fichier.</p>
+
+<pre><code>less fichier.txt</code></pre>
+<p>Lire un fichier page par page.</p>
+
+<pre><code>head fichier.txt</code></pre>
+<p>Afficher les 10 premières lignes.</p>
+
+<pre><code>tail fichier.txt</code></pre>
+<p>Afficher les 10 dernières lignes.</p>
+
+<pre><code>tail -f log.txt</code></pre>
+<p>Suivre un fichier en temps réel.</p>
+
+<h2>Recherche</h2>
+
+<pre><code>grep "texte" fichier.txt</code></pre>
+<p>Rechercher du texte dans un fichier.</p>
+
+<pre><code>find /home -name "*.txt"</code></pre>
+<p>Rechercher des fichiers.</p>
+
+<pre><code>which commande</code></pre>
+<p>Afficher l'emplacement d'une commande.</p>
+
+<h2>Processus</h2>
+
+<pre><code>ps aux</code></pre>
+<p>Afficher les processus en cours.</p>
+
+<pre><code>ps aux | grep ssh</code></pre>
+<p>Rechercher les processus SSH.</p>
+
+<pre><code>top</code></pre>
+<p>Surveiller le système en temps réel.</p>
+
+<pre><code>kill PID</code></pre>
+<p>Arrêter un processus.</p>
+
+<pre><code>kill -9 PID</code></pre>
+<p>Forcer l'arrêt d'un processus.</p>
+
+<h2>Utilisateurs et permissions</h2>
+
+<pre><code>whoami</code></pre>
+<p>Afficher l'utilisateur connecté.</p>
+
+<pre><code>id</code></pre>
+<p>Afficher les groupes et identifiants.</p>
+
+<pre><code>chmod 755 fichier</code></pre>
+<p>Modifier les permissions.</p>
+
+<pre><code>chown user:groupe fichier</code></pre>
+<p>Changer le propriétaire.</p>
+
+<h2>Réseau</h2>
+
+<pre><code>ip a</code></pre>
+<p>Afficher les adresses IP.</p>
+
+<pre><code>ping google.fr</code></pre>
+<p>Tester la connectivité réseau.</p>
+
+<pre><code>ssh utilisateur@ip</code></pre>
+<p>Connexion distante SSH.</p>
+
+<pre><code>scp fichier user@ip:/dossier</code></pre>
+<p>Copier un fichier via SSH.</p>
+
+<pre><code>ss -tuln</code></pre>
+<p>Afficher les ports ouverts.</p>
+
+<h2>Système</h2>
+
+<pre><code>uname -a</code></pre>
+<p>Informations sur le système.</p>
+
+<pre><code>df -h</code></pre>
+<p>Espace disque disponible.</p>
+
+<pre><code>free -h</code></pre>
+<p>Mémoire RAM disponible.</p>
+
+<pre><code>uptime</code></pre>
+<p>Temps de fonctionnement de la machine.</p>
+
+<h2>Archives</h2>
+
+<pre><code>tar -cvf archive.tar dossier</code></pre>
+<p>Créer une archive.</p>
+
+<pre><code>tar -xvf archive.tar</code></pre>
+<p>Extraire une archive.</p>
+
+<pre><code>zip archive.zip fichier</code></pre>
+<p>Compresser en ZIP.</p>
+
+<pre><code>unzip archive.zip</code></pre>
+<p>Décompresser un ZIP.</p>
+
+<h2>Variables spéciales Bash</h2>
+
+<pre><code>$0</code></pre>
+<p>Nom du script.</p>
+
+<pre><code>$1, $2, $3...</code></pre>
+<p>Arguments du script.</p>
+
+<pre><code>$#</code></pre>
+<p>Nombre d'arguments.</p>
+
+<pre><code>$*</code></pre>
+<p>Tous les arguments sous forme de chaîne unique.</p>
+
+<pre><code>$@</code></pre>
+<p>Tous les arguments séparément.</p>
+
+<pre><code>$$</code></pre>
+<p>PID du script courant.</p>
+
+<pre><code>$?</code></pre>
+<p>Code retour de la dernière commande (0 = succès).</p>
+
+<h2>Substitution de commande</h2>
+
+<pre><code>$(commande)</code></pre>
+<p>Exécute une commande et récupère son résultat.</p>
+
+<pre><code>echo "Date : $(date)"</code></pre>
+
+<h2>Pipes et redirections</h2>
+
+<pre><code>commande > fichier</code></pre>
+<p>Redirige la sortie vers un fichier.</p>
+
+<pre><code>commande >> fichier</code></pre>
+<p>Ajoute au fichier.</p>
+
+<pre><code>commande1 | commande2</code></pre>
+<p>Envoie la sortie d'une commande vers une autre.</p>
+
+<pre><code>cat fichier.txt | grep erreur</code></pre>
+
+</body>
+</html>
