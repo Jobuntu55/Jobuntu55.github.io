@@ -1,58 +1,207 @@
-
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobuntu55 - IT Lab</title>
+
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #e6edf3;
+            font-family: "Segoe UI", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px;
+            background: #161b22;
+            border-bottom: 3px solid #58a6ff;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        header p {
+            color: #8b949e;
+            margin-top: 10px;
+        }
+
+        section {
+            background: #161b22;
+            padding: 25px;
+            margin-top: 25px;
+            border-radius: 12px;
+        }
+
+        h2 {
+            color: #58a6ff;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.8;
+        }
+
+        .card {
+            background: #21262d;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid #58a6ff;
+            border-radius: 8px;
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #58a6ff;
+            font-weight: bold;
+        }
+
+        .card a:hover {
+            color: #79c0ff;
+        }
+
+        .badge {
+            background: #238636;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-right: 8px;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        footer {
+            text-align: center;
+            color: #8b949e;
+            padding: 30px;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>👋 Bienvenue sur mon IT Lab</h1>
+    <header>
+        <h1>🐧 Jobuntu55 - IT Lab</h1>
+        <p>Linux • Réseaux • Administration Système</p>
+    </header>
 
-    <p>
-        Bonjour, je suis Jonathan.
-    </p>
+    <div class="container">
 
-    <p>
-        Technicien support informatique passionné par Linux, les réseaux et l'administration système.
-    </p>
+        <section>
+            <h2>👋 Bienvenue</h2>
 
-    <h2>Présentation de mon projet</h2>
+            <p>
+                Bonjour, je suis Jonathan.
+            </p>
 
-    <p>
-Actuellement engagé dans une démarche de VAE pour obtenir un BTS CIEL (Cybersécurité, Informatique et réseaux, Électronique), j'envisage de poursuivre mon parcours avec une licence par la suite.
+            <p>
+                Technicien support informatique passionné par Linux, les réseaux
+                et l'administration système.
+            </p>
 
-En attendant, j'ai envie de profiter de mon temps libre pour approfondir mes connaissances en Linux, en parallèle de mes autres activités.
+            <span class="badge">Linux</span>
+            <span class="badge">Réseau</span>
+            <span class="badge">Debian</span>
+            <span class="badge">VirtualBox</span>
+            <span class="badge">Samba</span>
+        </section>
 
-J'apprécie particulièrement la philosophie de l'open source, le partage des connaissances et l'esprit communautaire qui gravitent autour de Linux.
+        <section>
+            <h2>📖 Présentation de mon projet</h2>
 
-Je vous propose donc de suivre, pas à pas, mon évolution dans l'apprentissage de cet OS : mes découvertes, mes expériences, mes réussites, mais aussi mes difficultés.
+            <p>
+                Actuellement engagé dans une démarche de VAE pour obtenir un BTS CIEL
+                (Cybersécurité, Informatique et Réseaux, Électronique), j'envisage de
+                poursuivre mon parcours avec une licence par la suite.
+            </p>
 
-L'objectif est simple : apprendre, progresser et partager cette aventure avec vous !
-    </p>
+            <p>
+                J'utilise ce site comme un laboratoire personnel afin de documenter
+                ma progression dans l'univers Linux, de l'administration système
+                et des réseaux.
+            </p>
 
-    <h2>📂 Mes expériences</h2>
+            <p>
+                Vous y trouverez mes laboratoires pratiques, mes découvertes,
+                les difficultés rencontrées ainsi que les solutions mises en œuvre.
+            </p>
+        </section>
 
-<ul>
-    <li><a href="linux.html">Linux</a></li>
+        <section>
+            <h2>🧪 Mes Labs</h2>
 
-     <li><a href="labs01/vm_debian12.html">Lab01-Installation et configuration initiale d'un serveur Debian 12</a></li>
+            <div class="card">
+                <a href="linux.html">📚 Fiches Linux</a>
+                <p>Documentation personnelle et commandes essentielles Linux.</p>
+            </div>
 
-    <li><a href="labs02/samba.html">Lab02-Mise en place d'un serveur de fichiers Samba</a></li>
-    
-    <li><a href="labs03.html">Lab03-Sauvegarde automatisée avec rsync + cron</a></li>
+            <div class="card">
+                <a href="labs01/vm_debian12.html">
+                    🐧 Lab 01 - Installation et configuration d'un serveur Debian 12
+                </a>
+                <p>Installation de Debian, SSH, réseau et configuration initiale.</p>
+            </div>
 
-   <li><a href="Labs04.html">Lab04-</a></li>
-    
-</ul>
+            <div class="card">
+                <a href="labs02/samba.html">
+                    📂 Lab 02 - Serveur de fichiers Samba
+                </a>
+                <p>Mise en place d'un partage réseau entre Debian et Windows.</p>
+            </div>
 
-    
-    <h2>📫 Contact</h2>
+            <div class="card">
+                <a href="labs03.html">
+                    💾 Lab 03 - Sauvegarde automatisée avec rsync + cron
+                </a>
+                <p>Automatisation des sauvegardes et planification des tâches.</p>
+            </div>
 
-    <p>
-        LinkedIn : Jonathan BIEBER
-    </p>
+            <div class="card">
+                <a href="labs04.html">
+                    🚀 Lab 04 - À venir
+                </a>
+                <p>Prochain laboratoire.</p>
+            </div>
+        </section>
 
+        <section>
+            <h2>📈 Progression</h2>
+
+            <ul>
+                <li>✅ Lab 01 - Debian 12</li>
+                <li>✅ Lab 02 - Samba</li>
+                <li>⏳ Lab 03 - Rsync & Cron</li>
+                <li>🔒 Lab 04 - À définir</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>📫 Contact</h2>
+
+            <p>
+                LinkedIn : Jonathan BIEBER
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        © 2026 - Jobuntu55 IT Lab
+    </footer>
 
 </body>
+
 </html>
