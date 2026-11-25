@@ -1,3 +1,7 @@
+<p>Durant l'installation, une erreur est apparue :</p>
+
 <img src="badmirror.png"
      alt="Erreur Bad Archive Mirror"
-     width="800">
+     style="max-width:100%; height:auto;">
+
+<pre><code>Bad archive mirror</code></pre>
