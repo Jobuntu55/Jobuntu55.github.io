@@ -1,0 +1,146 @@
+<h1>Lab 01 - Installation et configuration initiale d'un serveur Debian 12</h1>
+
+<h2>Objectif</h2>
+<p>Installer une machine virtuelle Debian 12 et la préparer pour une administration à distance.</p>
+
+<h2>Environnement</h2>
+<ul>
+    <li>Hyperviseur : VirtualBox</li>
+    <li>Système : Debian 12 (Bookworm)</li>
+    <li>RAM : 2 Go</li>
+    <li>Disque : 20 Go (VDI)</li>
+    <li>Réseau : Accès par pont (Bridged Adapter)</li>
+</ul>
+
+<h2>Étapes réalisées</h2>
+
+<h3>1. Création de la machine virtuelle</h3>
+<p>Création d'une VM nommée <strong>debian-lab</strong> avec :</p>
+<ul>
+    <li>2 Go de RAM</li>
+    <li>20 Go de stockage</li>
+    <li>Carte réseau en mode Accès par pont</li>
+</ul>
+
+<h3>2. Installation de Debian 12</h3>
+<p>Installation de Debian 12 à partir de l'image ISO officielle.</p>
+
+<p>Durant l'installation, une erreur est apparue :</p>
+
+<pre><code>Bad archive mirror</code></pre>
+
+<h4>Diagnostic</h4>
+<p>Le miroir Debian configuré pendant l'installation n'était pas accessible.</p>
+
+<h4>Solution</h4>
+<p>L'installation a été poursuivie sans utiliser de miroir réseau.</p>
+
+<h3>3. Première connexion</h3>
+<p>Connexion réussie avec l'utilisateur :</p>
+
+<pre><code>jonathan</code></pre>
+
+<p>Validation du bon fonctionnement du système :</p>
+
+<pre><code>hostnamectl</code></pre>
+
+<p>Résultat :</p>
+
+<pre><code>Operating System: Debian GNU/Linux 12 (Bookworm)
+Kernel: Linux 6.1
+Architecture: x86-64</code></pre>
+
+<h3>4. Configuration du clavier</h3>
+<p>Le clavier était initialement mal configuré.</p>
+
+<p>Reconfiguration du clavier en français (AZERTY) :</p>
+
+<pre><code>dpkg-reconfigure keyboard-configuration</code></pre>
+
+<h3>5. Vérification du réseau</h3>
+<p>Affichage de la configuration réseau :</p>
+
+<pre><code>ip a</code></pre>
+
+<p>Adresse IP obtenue :</p>
+
+<pre><code>192.168.1.113/24</code></pre>
+
+<h3>6. Test de connectivité</h3>
+<p>Vérification de l'accès Internet :</p>
+
+<pre><code>ping -c 4 8.8.8.8</code></pre>
+
+<p>Résultat :</p>
+
+<pre><code>4 packets transmitted
+4 received
+0% packet loss</code></pre>
+
+<p>Connexion Internet opérationnelle.</p>
+
+<h3>7. Correction des dépôts APT</h3>
+
+<p>Problème rencontré :</p>
+
+<pre><code>apt update</code></pre>
+
+<p>renvoyait une demande d'insertion du CD Debian.</p>
+
+<h4>Cause</h4>
+
+<p>Le fichier :</p>
+
+<pre><code>/etc/apt/sources.list</code></pre>
+
+<p>contenait uniquement :</p>
+
+<pre><code>deb cdrom:</code></pre>
+
+<h4>Solution</h4>
+
+<p>Remplacement des sources locales par les dépôts officiels Debian en ligne.</p>
+
+<h3>8. Installation d'OpenSSH</h3>
+
+<p>Mise à jour des paquets :</p>
+
+<pre><code>apt update</code></pre>
+
+<p>Installation du serveur SSH :</p>
+
+<pre><code>apt install openssh-server</code></pre>
+
+<p><strong>Objectif :</strong><br>
+Permettre l'administration à distance du serveur.</p>
+
+<h2>Compétences acquises</h2>
+
+<ul>
+    <li>✅ Création d'une machine virtuelle VirtualBox</li>
+    <li>✅ Installation de Debian 12</li>
+    <li>✅ Configuration réseau</li>
+    <li>✅ Diagnostic d'erreurs d'installation</li>
+    <li>✅ Configuration du clavier sous Linux</li>
+    <li>✅ Utilisation des commandes Linux de base</li>
+    <li>✅ Gestion des dépôts APT</li>
+    <li>✅ Installation et configuration du service SSH</li>
+</ul>
+
+<h2>Difficultés rencontrées</h2>
+
+<h3>Erreur « Bad archive mirror »</h3>
+<p><strong>Cause :</strong> Miroir Debian inaccessible.</p>
+<p><strong>Solution :</strong> Installation poursuivie sans miroir.</p>
+
+<h3>Dépôts configurés sur le CD-ROM</h3>
+<p><strong>Cause :</strong> APT utilisait l'image ISO comme source principale.</p>
+<p><strong>Solution :</strong> Modification du fichier <code>sources.list</code> pour utiliser les dépôts officiels Debian.</p>
+
+<h2>Conclusion</h2>
+
+<p>
+L'installation du serveur Debian 12 a été réalisée avec succès. Le système dispose d'un accès réseau fonctionnel,
+d'une configuration clavier adaptée et du service SSH permettant une administration à distance.
+Ce laboratoire constitue une base solide pour les prochains labs (Nginx, Docker, supervision, etc.).
+</p>
