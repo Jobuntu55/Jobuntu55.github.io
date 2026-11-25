@@ -1,0 +1,305 @@
+<h1>Lab 02 - Mise en place d'un serveur de fichiers Samba</h1>
+
+<h2>Objectif</h2>
+<p>
+    Mettre en place un serveur de partage de fichiers sous Linux permettant à des clients Windows
+    d'accéder à des ressources partagées via le protocole SMB.
+</p>
+
+<h2>Environnement</h2>
+<ul>
+    <li>Système d'exploitation : Debian 12 (Bookworm)</li>
+    <li>Machine virtuelle : VirtualBox</li>
+    <li>Adresse IP du serveur : 192.168.1.113</li>
+    <li>Service utilisé : Samba</li>
+</ul>
+
+<h2>Compétences travaillées</h2>
+<ul>
+    <li>Installation de services Linux</li>
+    <li>Gestion des permissions</li>
+    <li>Configuration réseau</li>
+    <li>Édition de fichiers de configuration</li>
+    <li>Gestion des utilisateurs Samba</li>
+    <li>Diagnostic et dépannage</li>
+</ul>
+
+<h2>Installation de Samba</h2>
+
+<p>Mise à jour des paquets :</p>
+
+<pre><code>apt update</code></pre>
+
+<p>Installation du serveur Samba :</p>
+
+<pre><code>apt install samba -y</code></pre>
+
+<p>Vérification du service :</p>
+
+<pre><code>systemctl status smbd</code></pre>
+
+<p>Résultat attendu :</p>
+
+<pre><code>active (running)</code></pre>
+
+<h2>Création du dossier partagé</h2>
+
+<p>Création du répertoire :</p>
+
+<pre><code>mkdir /srv/partage</code></pre>
+
+<p>Attribution des permissions :</p>
+
+<pre><code>chmod 777 /srv/partage</code></pre>
+
+<p>Vérification :</p>
+
+<pre><code>ls -ld /srv/partage</code></pre>
+
+<p>Résultat :</p>
+
+<pre><code>drwxrwxrwx</code></pre>
+
+<h2>Sauvegarde de la configuration</h2>
+
+<p>Avant modification :</p>
+
+<pre><code>cp /etc/samba/smb.conf /etc/samba/smb.conf.bak</code></pre>
+
+<h2>Configuration du partage</h2>
+
+<p>Modification du fichier :</p>
+
+<pre><code>nano /etc/samba/smb.conf</code></pre>
+
+<p>Ajout à la fin du fichier :</p>
+
+<pre><code>[Partage]
+path = /srv/partage
+browseable = yes
+writable = yes
+guest ok = no
+read only = no
+valid users = jonathan
+force user = root</code></pre>
+
+<h2>Explication des paramètres</h2>
+
+<h3>[Partage]</h3>
+<p>Nom du partage visible sur le réseau.</p>
+
+<p>Accès :</p>
+
+<pre><code>\\192.168.1.113\Partage</code></pre>
+
+<h3>path</h3>
+
+<pre><code>path = /srv/partage</code></pre>
+
+<p>Dossier réel partagé sur Linux.</p>
+
+<h3>browseable</h3>
+
+<pre><code>browseable = yes</code></pre>
+
+<p>Rend le partage visible sur le réseau.</p>
+
+<h3>writable</h3>
+
+<pre><code>writable = yes</code></pre>
+
+<p>Autorise la modification des fichiers.</p>
+
+<h3>guest ok</h3>
+
+<pre><code>guest ok = no</code></pre>
+
+<p>
+    Interdit l'accès anonyme.<br>
+    Une authentification est obligatoire.
+</p>
+
+<h3>read only</h3>
+
+<pre><code>read only = no</code></pre>
+
+<p>Autorise l'écriture.</p>
+
+<h3>valid users</h3>
+
+<pre><code>valid users = jonathan</code></pre>
+
+<p>Seul l'utilisateur <strong>jonathan</strong> est autorisé à accéder au partage.</p>
+
+<h3>force user</h3>
+
+<pre><code>force user = root</code></pre>
+
+<p>
+    Toutes les opérations sur le partage sont exécutées avec les droits de root.<br>
+    Cette configuration est utilisée uniquement pour simplifier le laboratoire.
+</p>
+
+<h2>Vérification de la configuration</h2>
+
+<p>Validation du fichier :</p>
+
+<pre><code>testparm</code></pre>
+
+<p>Résultat :</p>
+
+<pre><code>Loaded services file OK</code></pre>
+
+<h2>Redémarrage du service</h2>
+
+<p>Après modification :</p>
+
+<pre><code>systemctl restart smbd</code></pre>
+
+<h2>Vérification du port réseau</h2>
+
+<p>Contrôle de l'écoute réseau :</p>
+
+<pre><code>ss -tuln | grep 445</code></pre>
+
+<p>Le port :</p>
+
+<pre><code>445/TCP</code></pre>
+
+<p>doit être en état :</p>
+
+<pre><code>LISTEN</code></pre>
+
+<p>Ce port est utilisé par le protocole SMB.</p>
+
+<h2>Création d'un utilisateur Samba</h2>
+
+<p>Vérification de l'utilisateur Linux :</p>
+
+<pre><code>id jonathan</code></pre>
+
+<p>Création du mot de passe Samba :</p>
+
+<pre><code>smbpasswd -a jonathan</code></pre>
+
+<p>Vérification :</p>
+
+<pre><code>pdbedit -L</code></pre>
+
+<p>Résultat :</p>
+
+<pre><code>jonathan:1000:Jonathan</code></pre>
+
+<h2>Diagnostic local avec smbclient</h2>
+
+<p>Installation :</p>
+
+<pre><code>apt install smbclient -y</code></pre>
+
+<p>Test du serveur :</p>
+
+<pre><code>smbclient -L localhost -U jonathan</code></pre>
+
+<p>Résultat :</p>
+
+<pre><code>Sharename
+---------
+Partage
+IPC$
+jonathan</code></pre>
+
+<p>Ce test confirme :</p>
+
+<ul>
+    <li>Samba fonctionne</li>
+    <li>L'authentification fonctionne</li>
+    <li>Le partage est correctement publié</li>
+</ul>
+
+<h2>Tests côté Windows</h2>
+
+<p>Accès au partage :</p>
+
+<pre><code>\\192.168.1.113\Partage</code></pre>
+
+<h3>Conflit d'identifiants Windows</h3>
+
+<p>Message :</p>
+
+<pre><code>Le dossier réseau spécifié est actuellement mappé avec un nom d'utilisateur et un mot de passe différents</code></pre>
+
+<h4>Solution</h4>
+
+<p>Suppression des anciennes sessions :</p>
+
+<pre><code>net use * /delete /y</code></pre>
+
+<h2>Difficultés rencontrées</h2>
+
+<h3>Authentification Samba</h3>
+
+<p>Après activation de :</p>
+
+<pre><code>guest ok = no</code></pre>
+
+<p>Windows refusait la connexion.</p>
+
+<h4>Diagnostic</h4>
+
+<pre><code>testparm</code></pre>
+
+<pre><code>pdbedit -L</code></pre>
+
+<pre><code>smbclient -L localhost -U jonathan</code></pre>
+
+<h4>Conclusion</h4>
+
+<p>
+    Le serveur Samba fonctionnait correctement.<br>
+    Le problème provenait des identifiants mémorisés côté Windows.
+</p>
+
+<h2>Arborescence Linux découverte</h2>
+
+<p>
+    Pendant ce laboratoire, découverte de l'organisation classique d'un service Linux :
+</p>
+
+<pre><code>Programme     → /usr
+Configuration → /etc
+Logs          → /var/log
+Données       → /srv</code></pre>
+
+<p>Application à Samba :</p>
+
+<pre><code>Programme     → /usr/sbin/smbd
+Configuration → /etc/samba/smb.conf
+Logs          → /var/log/samba
+Données       → /srv/partage</code></pre>
+
+<h2>Conclusion</h2>
+
+<p>
+    Ce laboratoire a permis de mettre en place un serveur de fichiers Samba sous Debian
+    et de comprendre :
+</p>
+
+<ul>
+    <li>Le fonctionnement d'un service Linux ;</li>
+    <li>La structure des fichiers système ;</li>
+    <li>Les permissions Linux ;</li>
+    <li>L'authentification Samba ;</li>
+    <li>Le dépannage réseau ;</li>
+    <li>La communication entre Linux et Windows.</li>
+</ul>
+
+<p>
+    Ce laboratoire constitue une première approche concrète de l'administration
+    d'un serveur de fichiers en environnement professionnel. ✅
+</p>
+
+<hr>
+
+<p>
+    <a href="/">← Retour à l'accueil</a>
+</p>
